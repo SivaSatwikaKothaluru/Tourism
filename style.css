@@ -1,0 +1,403 @@
+/* --- Global Reset and Typography --- */
+:root {
+    --primary-color: #007bff; /* Blue for branding/buttons */
+    --secondary-color: #28a745; /* Green for booking confirmation/success */
+    --accent-color: #ffc107; /* Yellow for ratings/highlights */
+    --background-light: #f8f9fa; /* Light background for pages */
+    --background-dark: #343a40; /* Dark background for footer/header */
+    --text-dark: #212529;
+    --text-light: #ffffff;
+    --card-bg: white;
+    --spacing-unit: 1rem;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    margin-bottom: var(--spacing-unit);
+    color: var(--text-dark);
+}
+
+/* --- Header and Navigation --- */
+header {
+    background-color: var(--background-dark);
+    color: var(--text-light);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-light);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-light);
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active-link {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+/* --- Main Content and SPA Pages --- */
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.page {
+    display: none; /* Hidden by default for SPA */
+    padding: 40px 0;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.page.active {
+    display: block;
+    opacity: 1;
+}
+
+/* --- Home Section --- */
+#home h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.tagline {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #6c757d;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    gap: 10px;
+}
+
+.search-bar input {
+    padding: 12px 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    width: 60%;
+    font-size: 1rem;
+}
+
+/* --- General Button Style --- */
+button {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+}
+
+/* --- Featured Packages on Home --- */
+.featured-packages {
+    text-align: center;
+    padding: 30px;
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.featured-packages h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.featured-packages p.gallery-placeholder {
+    height: 150px;
+    background-color: #ced4da;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-style: italic;
+    color: #495057;
+    margin-bottom: 20px;
+    border-radius: 6px;
+}
+
+/* --- Destinations Page (Listing) --- */
+.filter-controls {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.filter-controls input, .filter-controls select {
+    padding: 8px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+#package-listing {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.package-card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+.package-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.package-card h3 {
+    padding: 15px;
+    margin: 0;
+    color: var(--primary-color);
+    font-size: 1.3rem;
+}
+
+.gallery-placeholder {
+    position: relative;
+}
+
+.gallery-placeholder img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.rating {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--accent-color);
+    color: var(--text-dark);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.package-card .description {
+    padding: 0 15px 10px;
+    font-size: 0.95rem;
+    color: #495057;
+}
+
+.price-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: var(--background-light);
+    border-top: 1px solid #e9ecef;
+}
+
+.dynamic-price {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.book-btn {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+}
+
+
+/* --- Booking and Contact Forms --- */
+.itinerary-details {
+    background-color: #e9f5ff;
+    border: 1px solid #cce5ff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.itinerary-details h2 {
+    color: var(--primary-color);
+}
+
+.booking-form-area, #contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+}
+
+.booking-form-area h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.booking-form-area input, #contact-form input, #contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+.booking-form-area button, #contact-form button {
+    width: 100%;
+}
+
+
+/* --- Reviews Section --- */
+#review-list {
+    display: flex;
+    flex-direction: column-reverse; /* Newest reviews at the top */
+    gap: 20px;
+}
+
+.review-item {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 5px solid var(--accent-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.review-item h3 {
+    margin-top: 0;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+}
+
+.package-name {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+#review-list > button {
+    align-self: flex-start;
+    margin-bottom: 20px;
+}
+
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--background-dark);
+    color: #adb5bd;
+    margin-top: 50px;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+    .logo {
+        margin-bottom: 10px;
+    }
+    .nav-links {
+        padding: 10px 0;
+        width: 100%;
+        justify-content: space-around;
+    }
+    .nav-links li {
+        margin-left: 0;
+    }
+    .search-bar {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .search-bar input, .search-bar button {
+        width: 100%;
+    }
+    .filter-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .filter-controls input, .filter-controls select, .filter-controls button {
+        width: 100%;
+    }
+}
+
+/* --- style.css (Destination Listing) --- */
+#package-listing {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+/* ADDED: Ensure elements like the new Category H2 can span across columns */
+#package-listing h2 { 
+    grid-column: 1 / -1;
+}
+
+/* Updated filter controls to better handle the new element */
+@media (max-width: 768px) {
+    /* ... (existing styles) ... */
+    .filter-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .filter-controls input, .filter-controls select, .filter-controls button {
+        width: 100%;
+    }
+    /* Ensure labels are visible in the stack */
+    .filter-controls label { 
+        margin-top: 10px;
+        font-weight: bold;
+    }
+}

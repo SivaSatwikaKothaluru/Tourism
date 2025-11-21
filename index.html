@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Journeys - Book Your Next Adventure</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <span class="logo">Global Journeys</span>
+            <ul class="nav-links">
+                <li><a href="#" data-page="home">Home</a></li>
+                <li><a href="#" data-page="destinations">Destinations</a></li>
+                <li><a href="#" data-page="reviews">Reviews</a></li>      
+                <li><a href="#" data-page="about">About Us</a></li>
+                <li><a href="#" data-page="contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        
+        <section id="home" class="page active">
+            <h1>Find Your Next Adventure!</h1>
+            <p class="tagline">Find special travel deals with flexible prices, and easily keep track of your trip plan.</p>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Where do you want to go?" id="quick-search-input">
+                <button onclick="showPage('destinations')">Search Packages →</button>
+            </div>
+            
+            <div class="featured-packages">
+                <h2>Top Deals This Month</h2>
+                <div id="featured-list">
+                    </div>
+                <button onclick="showPage('destinations')">View All Destinations</button>
+            </div>
+        </section>
+
+        <section id="destinations" class="page">
+            <h1>🌏 Browse All Packages</h1>
+            
+            <div class="filter-controls">
+                <label for="date-select">Travel Dates:</label>
+                <input type="date" id="date-select">
+                <label for="price-select">Price Range:</label>
+                <select id="price-select">
+                    <option value="all">All Prices</option>
+                    <option value="budget">Budget (Up to ₹30k)</option>
+                    <option value="mid">Mid-Range (₹30k - ₹60k)</option>
+                    <option value="luxury">Luxury (Over ₹60k)</option>
+                </select>
+                <button onclick="filterPackages()">Apply Filters</button>
+            </div>
+            
+            <div id="package-listing" class="package-grid">
+                </div>
+        </section>
+
+        <section id="booking" class="page">
+            <h1>✅ Complete Your Booking</h1>
+            <p>You are booking: <span id="selected-package-name">...</span></p>
+            
+            <div class="itinerary-details">
+                <h2>Your Itinerary</h2>
+                <p>Please select a package on the Destinations page.</p>
+            </div>
+
+            <div class="booking-form-area">
+                <h2>Traveler Details & Payment</h2>
+                <form id="payment-form">
+    <input type="text" placeholder="Full Name" required id="traveler-name"> 
+    <input type="email" placeholder="Email" required id="traveler-email"> 
+    <input type="text" placeholder="Credit Card Number (e.g., 1234567890123456)" pattern="[0-9]{16}" title="Credit card must be 16 digits" required id="card-number">
+    
+    <div style="display: flex; gap: 10px;">
+        <input type="text" placeholder="MM/YY" pattern="(0[1-9]|1[0-2])\/[0-9]{2}" title="Must be MM/YY format" required style="width: 50%;">
+        <input type="text" placeholder="CVV" pattern="[0-9]{3,4}" title="CVV must be 3 or 4 digits" required style="width: 50%;">
+    </div>
+    <button type="submit">Pay and Confirm</button>
+</form>
+            </div>
+
+            <div class="booking-form-area">
+            </div>
+        
+        <div id="confirmation-receipt" style="display: none; max-width: 600px; margin: 30px auto; padding: 20px; border: 1px dashed var(--primary-color); border-radius: 8px;">
+            <h2>🎉 Booking Confirmed!</h2>
+            <p>Your journey is set. Download your detailed itinerary below.</p>
+            <button onclick="downloadItineraryPdf()" style="margin-top: 15px; width: 100%; background-color: var(--secondary-color);">
+                ⬇️ Download Booking PDF
+            </button>
+        </div>
+        
+        </section>
+
+        <section id="reviews" class="page">
+            <h1>⭐ Customer Reviews</h1>
+            <p>See what our travelers are saying about their adventures.</p>
+            <div id="review-list">
+                </div>
+        </section>
+
+        <section id="about" class="page">
+            <h1>About Us</h1>
+            <p>
+                Global Journeys was founded on the principle that planning your dream vacation should be as exciting as the trip itself. We cut through the complexity, offering expertly curated travel packages that include all the essentials—flights, hand-picked accommodations, and unique local excursions.
+                
+                Our mission is simple: to transform complex travel planning into an effortless, inspiring experience. Start your journey with confidence today!
+            </p>
+            <h2>Our Core Promises:</h2>
+            <ul>
+                <li>Transparency & Value: We provide dynamic, real-time pricing without hidden fees, ensuring you always get the best value for your adventure.</li>
+                <li>Seamless Management: Every booking includes access to our integrated itinerary manager, allowing you to track flights, reservations, and activities in one place.</li>
+                <li>Reliable Partnerships: We vet and partner only with highly-rated local guides and premium service providers globally, guaranteeing a high-quality, safe, and memorable journey.</li>
+            </ul>
+            
+        </section>
+
+        <section id="contact" class="page">
+            <h1>Contact Us</h1>
+            <ul>
+                <li>Global Journeys</li>
+                <li>gobaljourneys19@gmail.com</li>
+                <li>9876543210</li>
+                <li>Nellore</li>
+            </ul>
+            <p>Have questions !! Fill out the form below.</p>
+            <form id="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Question" rows="5" required></textarea>
+                <button type="submit">Send </button>
+            </form>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Global Journeys. All rights reserved.</p>
+    </footer>
+    
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+
+</body>
+</html>
