@@ -46,7 +46,6 @@ const REVIEWS_DATA = [
 
 const FEATURED_PACKAGE_IDS = ['bali-beach', 'european-cities'];
 
-// --- 2. SPA Router Logic ---
 document.addEventListener('DOMContentLoaded', () => {
     // Attach event listeners to navigation links
     document.querySelectorAll('.nav-links a').forEach(link => {
@@ -57,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Attach event listener to the quick search button
+
     const quickSearchButton = document.querySelector('.search-bar button');
     if (quickSearchButton) {
         quickSearchButton.addEventListener('click', () => {
@@ -65,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Handle initial page load
+
     const initialPageId = window.location.hash.substring(1) || 'home';
     showPage(initialPageId);
 
@@ -75,10 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderFeaturedPackages();
 });
 
-/**
- * Manages the visibility of the SPA sections (pages).
- * @param {string} pageId - The ID of the section to show (e.g., 'home', 'destinations').
- */
+
 function showPage(pageId) {
     document.querySelectorAll('.page').forEach(page => {
         page.classList.remove('active');
@@ -101,21 +97,10 @@ function showPage(pageId) {
 }
 
 
-// --- 3. Feature Rendering Functions ---
-
-/**
-
- * Creates the HTML card for a single package.
-
- * @param {Object} pkg - The package data object.
-
- * @returns {string} The HTML string for the package card.
-
- */
 
 function createPackageCard(pkg) {
 
-    // Use the placeholder service for dynamic images
+   
 
     const imageUrl = `https://placehold.co/400x200/5078a6/FFFFFF?text=${pkg.imagePlaceholderText.replace(/ /g, '+')}`;
 
@@ -156,10 +141,7 @@ function createPackageCard(pkg) {
 }
 
 
-/**
- * Renders package cards on the Destinations page.
- * @param {Array<Object>} [filteredData=DESTINATIONS_DATA] - The list of packages to render.
- */
+
 function renderDestinations(filteredData = DESTINATIONS_DATA) {
     const listingContainer = document.getElementById('package-listing');
     listingContainer.innerHTML = ''; // Clear previous content
@@ -174,16 +156,14 @@ function renderDestinations(filteredData = DESTINATIONS_DATA) {
     listingContainer.innerHTML = cardsHtml;
 }
 
-/**
- * Renders featured package cards on the Home page.
- */
+
 function renderFeaturedPackages() {
     const featuredList = document.getElementById('featured-list');
     if (!featuredList) return;
 
     const featuredData = DESTINATIONS_DATA.filter(pkg => FEATURED_PACKAGE_IDS.includes(pkg.id));
     
-    // Create a simplified card for the featured section
+   
     const cardsHtml = featuredData.map(pkg => `
         <div class="package-card" style="width: 45%; max-width: 350px;">
             <h3>${pkg.name}</h3>
@@ -204,13 +184,11 @@ function renderFeaturedPackages() {
     featuredList.innerHTML = cardsHtml;
 }
 
-/**
- * Renders customer reviews on the Reviews page.
- */
+
 function renderReviews() {
     const reviewList = document.getElementById('review-list');
     
-    // Clear the placeholder content and re-add the button
+    
     reviewList.innerHTML = '';
     const submissionButton = document.createElement('button');
     submissionButton.setAttribute('onclick', 'openReviewSubmission()');
@@ -220,7 +198,7 @@ function renderReviews() {
     REVIEWS_DATA.forEach(review => {
         const item = document.createElement('div');
         item.className = 'review-item';
-        // Generate star rating string
+       
         const stars = '⭐'.repeat(review.rating);
         item.innerHTML = `
             <h3>${stars} "${review.comment.substring(0, 70).trim()}${review.comment.length > 70 ? '...' : ''}" - ${review.name}</h3>
@@ -232,19 +210,15 @@ function renderReviews() {
     });
 }
 
-/**
- * Handles the logic when a user clicks 'Book Now'.
- * Transfers data to the booking page.
- * @param {string} packageId - The ID of the selected package.
- */
+
 function startBooking(packageId) {
     const selectedPackage = DESTINATIONS_DATA.find(p => p.id === packageId);
     
     if (selectedPackage) {
-        // Update the booking page with the selected package name
+       
         document.getElementById('selected-package-name').textContent = selectedPackage.name;
 
-        // Load detailed itinerary data
+       
         const itineraryDetails = document.querySelector('#booking .itinerary-details');
         itineraryDetails.innerHTML = `
             <h2>Your Itinerary: ${selectedPackage.name}</h2>
@@ -264,9 +238,7 @@ function startBooking(packageId) {
     }
 }
 
-/**
- * Filters the packages based on user-selected criteria.
- */
+
 function filterPackages() {
     const priceRange = document.getElementById('price-select').value;
     const dateInput = document.getElementById('date-select').value; // Currently not used for filtering, but captured
@@ -283,8 +255,7 @@ function filterPackages() {
         // Over 60,000
         filtered = filtered.filter(pkg => pkg.price > 60000);
     }
-    
-    // Add logic for filtering by text input if implemented later
+   
     const quickSearchInput = document.getElementById('quick-search-input').value.toLowerCase();
     if (quickSearchInput) {
         filtered = filtered.filter(pkg => 
@@ -298,33 +269,33 @@ function filterPackages() {
 }
 
 
-// --- 4. Form Submission Handlers ---
+
 
 document.getElementById('contact-form')?.addEventListener('submit', (e) => {
     e.preventDefault();
     // In a real app, this would send data to the backend API.
-    alert('✅ Success! Thank you for your question. We will get back to you shortly.');
+    alert(' Success! Thank you for your question. We will get back to you shortly.');
     e.target.reset();
 });
-// --- 4. Form Submission Handlers ---
+
 
 document.getElementById('contact-form')?.addEventListener('submit', (e) => {
     e.preventDefault();
-    // In a real app, this would send data to the backend API.
-    alert('✅ Success! Thank you for your question. We will get back to you shortly.');
+    
+    alert(' Success! Thank you for your question. We will get back to you shortly.');
     e.target.reset();
 });
 
-// 🛑 UPDATED: Booking Form Handler (Now captures and displays user/payment data)
+
 document.getElementById('payment-form')?.addEventListener('submit', (e) => {
     e.preventDefault();
     
-    // --- 1. Capture Form Data ---
+    
     const travelerName = document.getElementById('traveler-name').value;
     const travelerEmail = document.getElementById('traveler-email').value;
     const cardNumber = document.getElementById('card-number').value;
     
-    // Mask the card number, showing only the last 4 digits
+   
     const maskedCard = '**** **** **** ' + cardNumber.slice(-4);
 
     const selectedPackage = DESTINATIONS_DATA.find(p => 
@@ -332,14 +303,14 @@ document.getElementById('payment-form')?.addEventListener('submit', (e) => {
     );
     
     if (selectedPackage) {
-        // 2. Alert Success
-        alert(`🎉 Congratulations! Successfully booked "${selectedPackage.name}"! A confirmation email has been sent to ${travelerEmail}.`);
         
-        // 3. Update the Itinerary Details (This is the content that becomes the PDF)
+        alert(` Congratulations! Successfully booked "${selectedPackage.name}"! A confirmation email has been sent to ${travelerEmail}.`);
+        
+       
         const itineraryDetails = document.querySelector('#booking .itinerary-details');
         
         itineraryDetails.innerHTML = `
-            <h2>✅ CONFIRMED BOOKING ITINERARY</h2>
+            <h2>CONFIRMED BOOKING ITINERARY</h2>
             
             <div class="transaction-details-box" style="background-color: #e9f5ff; padding: 15px; border-radius: 6px; margin-bottom: 20px;">
                 <h3>Traveler & Transaction Details</h3>
@@ -361,33 +332,30 @@ document.getElementById('payment-form')?.addEventListener('submit', (e) => {
             <p>Day 4: Departure Preparation / Relaxation.</p>
         `;
 
-        // 4. Show Receipt Button and Hide Form
+        
         e.target.style.display = 'none';
         
         const receiptDiv = document.getElementById('confirmation-receipt');
         receiptDiv.style.display = 'block';
         receiptDiv.innerHTML = `
-            <h2>🎉 Booking Confirmed!</h2>
+            <h2> Booking Confirmed!</h2>
             <p><strong>Package:</strong> ${selectedPackage.name}</p>
             <p>Your detailed itinerary is ready to download.</p>
             <button onclick="downloadItineraryPdf()" style="margin-top: 15px; width: 100%; background-color: var(--secondary-color);">
-                ⬇️ Download Booking PDF
+                 Download Booking PDF
         
             </button>
         `;
     }
 });
-// (The downloadItineraryPdf function below remains UNCHANGED from the previous step)
 
-// 🛑 NEW: PDF Generation Function
-/**
- * Uses html2canvas and jsPDF to convert the itinerary section into a PDF.
- */
+
+
 function downloadItineraryPdf() {
-    // 1. Select the content area to be converted to PDF.
+   
     const itineraryArea = document.querySelector('#booking .itinerary-details');
 
-    // Display the receipt content which also contains the itinerary
+    
     const receiptContent = document.querySelector('#confirmation-receipt');
 
     if (!itineraryArea || !receiptContent) {
@@ -395,15 +363,13 @@ function downloadItineraryPdf() {
         return;
     }
 
-    // 2. Use html2canvas to convert the HTML/CSS content to a Canvas (image).
-    // The Promise ensures the rendering completes before we proceed.
+    
     html2canvas(itineraryArea, { scale: 2 }).then(canvas => {
-        // 3. Initialize jsPDF
-        // The canvas dimensions are used to determine the PDF size.
+       
         const { jsPDF } = window.jspdf;
         const pdf = new jsPDF('p', 'mm', 'a4'); 
         
-        // PDF paper dimensions (A4 is 210mm x 297mm)
+        
         const pdfWidth = pdf.internal.pageSize.getWidth();
         const pdfHeight = pdf.internal.pageSize.getHeight();
 
@@ -412,37 +378,37 @@ function downloadItineraryPdf() {
         const imgHeight = (canvas.height * imgWidth) / canvas.width;
         let position = 10; // Start position (10mm margin from top)
 
-        // If the content is longer than one page, split it across multiple pages
+        
         if (imgHeight > (pdfHeight - 20)) {
-            // This is simplified, for complex multi-page handling, consider autoTable or a different approach
+           
             pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
         } else {
             pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
         }
 
-        // 4. Download the PDF
+       
         pdf.save("GlobalJourneys_Itinerary.pdf");
         
-        // Reset the booking page display after a short delay
+       
         setTimeout(() => {
             document.getElementById('payment-form').style.display = 'block';
             document.getElementById('confirmation-receipt').style.display = 'none';
-            // You might want to clear the itinerary details here too if the user navigated away.
+           
             document.getElementById('selected-package-name').textContent = '...';
             document.querySelector('#booking .itinerary-details').innerHTML = '<p>Please select a package on the Destinations page.</p>';
-        }, 500); // 500ms delay to ensure download starts
+        }, 500); 
     });
 }
 
 function openReviewSubmission() {
-    // A simple prompt to simulate getting user input for the review.
+   
     const reviewName = prompt("Please enter your name:");
     const reviewPackage = prompt("Which package did you book?");
     const reviewRating = parseInt(prompt("Give us a rating (1-5):"), 10);
     const reviewComment = prompt("What was your experience?");
 
     if (reviewName && reviewPackage && reviewRating >= 1 && reviewRating <= 5 && reviewComment) {
-        // Simulate adding the new review to the data and re-rendering
+        
         REVIEWS_DATA.unshift({ 
             name: reviewName, 
             package: reviewPackage, 
@@ -454,7 +420,7 @@ function openReviewSubmission() {
     } else if (reviewName || reviewPackage || reviewRating || reviewComment) {
         alert('Review submission cancelled or some information was missing/invalid.');
     } else {
-        // User cancelled the first prompt
+       
     }
 }
 
