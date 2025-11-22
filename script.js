@@ -34,7 +34,43 @@ const DESTINATIONS_DATA = [
         rating: 4.7,
         tags: ['nature', 'relaxation', 'domestic'],
         imagePlaceholderText: 'Kerala Backwaters'
-    }
+    },
+    {
+        id: 'ladakh-bike-expedition',
+        name: 'Ladakh High-Altitude Bike Expedition (9 Days)',
+        description: 'The ultimate adventure trip: navigating challenging mountain passes (like Khardung La) and exploring the stunning landscapes of Leh, Nubra Valley, and Pangong Lake on a Royal Enfield.',
+        price: 49999, // Budget/Mid-Range
+        rating: 4.8,
+        tags: ['adventure', 'high-altitude', 'biking', 'extreme'],
+        imagePlaceholderText: 'Ladakh-Bike-Ride'
+    },
+    {
+        id: 'rajasthan-palace',
+        name: 'Rajasthan Luxury Palace Stay (6 Days)',
+        description: 'A royal experience staying in converted heritage palaces (like in Udaipur and Jaipur), including private sightseeing, cultural shows, and gourmet Rajasthani dining.',
+        price: 95000, // Luxury
+        rating: 4.9,
+        tags: ['luxury', 'history', 'culture', 'heritage'],
+        imagePlaceholderText: 'Rajasthan-Palace'
+    },
+    {
+        id: 'golden-triangle',
+        name: 'The Golden Triangle Tour (7 Days)',
+        description: 'The classic cultural circuit covering Delhi (historical monuments), Agra (Taj Mahal), and Jaipur (Pink City) for a comprehensive blend of Mughal and Rajput heritage.',
+        price: 35000, // Budget
+        rating: 4.7,
+        tags: ['culture', 'history', 'city-break', 'iconic'],
+        imagePlaceholderText: 'Golden-Triangle'
+    },
+    {
+        id: 'andaman-island',
+        name: 'Andaman Scuba & Beach Holiday (6 Days)',
+        description: 'A tropical retreat to the serene beaches of Havelock and Neil Island, focusing on water sports, world-class scuba diving/snorkeling, and tranquil beach relaxation.',
+        price: 40000, // Mid-Range
+        rating: 4.6,
+        tags: ['relaxation', 'beach', 'nature', 'domestic'],
+        imagePlaceholderText: 'Andaman-Beach'
+    }.
 ];
 
 const REVIEWS_DATA = [
