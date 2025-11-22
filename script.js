@@ -3,7 +3,7 @@ const DESTINATIONS_DATA = [
         id: 'himalayan-trek',
         name: 'The Himalayan Trek (5 Days)',
         description: 'An epic journey through the mountains of Uttarakhand, focusing on stunning high-altitude views and base camp experiences.',
-        price: 29999, // Budget
+        price: 29999, 
         rating: 4.8,
         tags: ['adventure', 'trekking', 'nature'],
         imagePlaceholderText: 'Himalayan-Trek'
@@ -12,7 +12,7 @@ const DESTINATIONS_DATA = [
         id: 'bali-beach',
         name: 'Bali Relaxation Retreat (7 Days)',
         description: 'A luxurious and peaceful getaway to the serene beaches and temples of Bali, Indonesia, including yoga sessions.',
-        price: 45000, // Mid-Range
+        price: 45000, 
         rating: 4.5,
         tags: ['relaxation', 'luxury', 'beach'],
         imagePlaceholderText: 'Bali Beach'
@@ -21,7 +21,7 @@ const DESTINATIONS_DATA = [
         id: 'european-cities',
         name: 'Grand European Tour (10 Days)',
         description: 'A whirlwind tour covering Paris, Rome, and Berlin. Culture, history, and great food in iconic European cities!',
-        price: 75000, // Luxury
+        price: 75000, 
         rating: 4.9,
         tags: ['culture', 'city-break', 'history'],
         imagePlaceholderText: 'European Tour'
@@ -30,7 +30,7 @@ const DESTINATIONS_DATA = [
         id: 'kerala-backwaters',
         name: 'Kerala Backwaters Holiday (4 Days)',
         description: 'Experience the tranquil beauty of Kerala on a houseboat, exploring the lush backwaters and local life.',
-        price: 32000, // Mid-Range
+        price: 32000, 
         rating: 4.7,
         tags: ['nature', 'relaxation', 'domestic'],
         imagePlaceholderText: 'Kerala Backwaters'
@@ -47,7 +47,7 @@ const REVIEWS_DATA = [
 const FEATURED_PACKAGE_IDS = ['bali-beach', 'european-cities'];
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Attach event listeners to navigation links
+    
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const initialPageId = window.location.hash.substring(1) || 'home';
     showPage(initialPageId);
 
-    // Initial data rendering for the Destinations and Reviews pages
+    
     renderDestinations();
     renderReviews();
     renderFeaturedPackages();
@@ -83,9 +83,9 @@ function showPage(pageId) {
     const targetPage = document.getElementById(pageId);
     if (targetPage) {
         targetPage.classList.add('active');
-        window.location.hash = pageId; // Update URL hash for better back-button support
+        window.location.hash = pageId; 
 
-        // Highlight active link in the navigation bar
+    
         document.querySelectorAll('.nav-links a').forEach(link => {
             if (link.getAttribute('data-page') === pageId) {
                 link.classList.add('active-link');
@@ -151,7 +151,7 @@ function renderDestinations(filteredData = DESTINATIONS_DATA) {
         return;
     }
 
-    // Use map and join for efficient rendering
+
     const cardsHtml = filteredData.map(createPackageCard).join('');
     listingContainer.innerHTML = cardsHtml;
 }
@@ -205,7 +205,7 @@ function renderReviews() {
             <p class="package-name">Package: ${review.package}</p>
             <p>${review.comment}</p>
         `;
-        // Insert review before the submission button (for newest-first display)
+    
         reviewList.insertBefore(item, reviewList.firstChild);
     });
 }
@@ -246,13 +246,10 @@ function filterPackages() {
     let filtered = DESTINATIONS_DATA;
     
     if (priceRange === 'budget') {
-        // Up to 30,000
         filtered = filtered.filter(pkg => pkg.price <= 30000);
     } else if (priceRange === 'mid') {
-        // 30,001 to 60,000
         filtered = filtered.filter(pkg => pkg.price > 30000 && pkg.price <= 60000);
     } else if (priceRange === 'luxury') {
-        // Over 60,000
         filtered = filtered.filter(pkg => pkg.price > 60000);
     }
    
@@ -273,7 +270,7 @@ function filterPackages() {
 
 document.getElementById('contact-form')?.addEventListener('submit', (e) => {
     e.preventDefault();
-    // In a real app, this would send data to the backend API.
+
     alert(' Success! Thank you for your question. We will get back to you shortly.');
     e.target.reset();
 });
