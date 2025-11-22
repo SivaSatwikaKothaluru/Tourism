@@ -1,10 +1,9 @@
-/* --- Global Reset and Typography --- */
 :root {
-    --primary-color: #007bff; /* Blue for branding/buttons */
-    --secondary-color: #28a745; /* Green for booking confirmation/success */
-    --accent-color: #ffc107; /* Yellow for ratings/highlights */
-    --background-light: #f8f9fa; /* Light background for pages */
-    --background-dark: #343a40; /* Dark background for footer/header */
+    --primary-color: #007bff; 
+    --secondary-color: #28a745; 
+    --accent-color: #ffc107;
+    --background-light: #f8f9fa; 
+    --background-dark: #343a40;
     --text-dark: #212529;
     --text-light: #ffffff;
     --card-bg: white;
@@ -29,7 +28,7 @@ h1, h2, h3 {
     color: var(--text-dark);
 }
 
-/* --- Header and Navigation --- */
+
 header {
     background-color: var(--background-dark);
     color: var(--text-light);
@@ -77,7 +76,7 @@ header {
     color: var(--text-light);
 }
 
-/* --- Main Content and SPA Pages --- */
+
 .container {
     max-width: 1200px;
     margin: 20px auto;
@@ -85,7 +84,7 @@ header {
 }
 
 .page {
-    display: none; /* Hidden by default for SPA */
+    display: none;
     padding: 40px 0;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
@@ -96,7 +95,7 @@ header {
     opacity: 1;
 }
 
-/* --- Home Section --- */
+
 #home h1 {
     font-size: 2.5rem;
     color: var(--primary-color);
@@ -125,7 +124,7 @@ header {
     font-size: 1rem;
 }
 
-/* --- General Button Style --- */
+
 button {
     background-color: var(--primary-color);
     color: var(--text-light);
@@ -142,7 +141,7 @@ button:hover {
     transform: translateY(-1px);
 }
 
-/* --- Featured Packages on Home --- */
+
 .featured-packages {
     text-align: center;
     padding: 30px;
@@ -168,7 +167,7 @@ button:hover {
     border-radius: 6px;
 }
 
-/* --- Destinations Page (Listing) --- */
+
 .filter-controls {
     display: flex;
     gap: 15px;
@@ -260,7 +259,7 @@ button:hover {
 }
 
 
-/* --- Booking and Contact Forms --- */
+
 .itinerary-details {
     background-color: #e9f5ff;
     border: 1px solid #cce5ff;
@@ -300,7 +299,7 @@ button:hover {
 }
 
 
-/* --- Reviews Section --- */
+
 #review-list {
     display: flex;
     flex-direction: column-reverse; /* Newest reviews at the top */
@@ -333,7 +332,7 @@ button:hover {
 }
 
 
-/* --- Footer --- */
+
 footer {
     text-align: center;
     padding: 20px;
@@ -342,7 +341,7 @@ footer {
     margin-top: 50px;
 }
 
-/* --- Responsive Adjustments --- */
+
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
@@ -374,20 +373,20 @@ footer {
     }
 }
 
-/* --- style.css (Destination Listing) --- */
+
 #package-listing {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 25px;
 }
-/* ADDED: Ensure elements like the new Category H2 can span across columns */
+
 #package-listing h2 { 
     grid-column: 1 / -1;
 }
 
-/* Updated filter controls to better handle the new element */
+
 @media (max-width: 768px) {
-    /* ... (existing styles) ... */
+   
     .filter-controls {
         flex-direction: column;
         align-items: stretch;
@@ -395,7 +394,7 @@ footer {
     .filter-controls input, .filter-controls select, .filter-controls button {
         width: 100%;
     }
-    /* Ensure labels are visible in the stack */
+   
     .filter-controls label { 
         margin-top: 10px;
         font-weight: bold;
