@@ -70,6 +70,88 @@ const DESTINATIONS_DATA = [
         rating: 4.6,
         tags: ['relaxation', 'beach', 'nature', 'domestic'],
         imagePlaceholderText: 'Andaman-Beach'
+    },
+   
+    {
+        id: 'tamil-nadu-temple-trail',
+        name: 'Tamil Nadu Grand Temple Circuit (8 Days)',
+        description: 'A deep cultural journey through Madurai (Meenakshi Temple), Thanjavur (Brihadeeswarar Temple - UNESCO World Heritage), and Rameshwaram, focusing on stunning Dravidian architecture and spirituality.',
+        price: 35000, // Budget
+        rating: 4.7,
+        tags: ['culture', 'history', 'spiritual', 'iconic'],
+        imagePlaceholderText: 'Madurai-Meenakshi-Temple'
+    },
+    {
+        id: 'karnataka-heritage',
+        name: 'Hampi & Mysore Royal Heritage (7 Days)',
+        description: 'Explore the spectacular stone ruins of the Vijayanagara Empire at Hampi (UNESCO site), then immerse yourself in the royal grandeur of Mysore Palace and the silk city.',
+        price: 42000, // Mid-Range
+        rating: 4.6,
+        tags: ['history', 'ruins', 'heritage', 'culture'],
+        imagePlaceholderText: 'Hampi-Mysore-Palace'
+    },
+    {
+        id: 'coorg-wildlife-coffee',
+        name: 'Coorg & Wayanad: Coffee, Mist & Treks (5 Days)',
+        description: 'A lush green retreat to the "Scotland of India" (Coorg, Karnataka) and Wayanad (Kerala). Focused on coffee and spice plantation tours, waterfall visits (Abbey Falls), and gentle forest treks.',
+        price: 39000, // Mid-Range
+        rating: 4.5,
+        tags: ['nature', 'hills', 'plantations', 'trekking'],
+        imagePlaceholderText: 'Coorg-Coffee-Estate'
+    },
+    {
+        id: 'andhra-telangana-pilgrimage',
+        name: 'Tirupati & Hyderabad Spiritual-City Break (5 Days)',
+        description: 'Combines the spiritual draw of Tirumala Venkateswara Temple (Tirupati Balaji) in Andhra Pradesh with the historical monuments (Charminar, Golconda Fort) and food of Hyderabad, Telangana.',
+        price: 36000, // Budget/Mid-Range
+        rating: 4.4,
+        tags: ['spiritual', 'city-break', 'history', 'iconic'],
+        imagePlaceholderText: 'Tirupati-Charminar'
+    },
+    {
+        id: 'kanyakumari-coastal',
+        name: 'Tamil Nadu South Tip & Coastal Views (4 Days)',
+        description: 'Visit the unique confluence of the Arabian Sea, Bay of Bengal, and Indian Ocean at Kanyakumari. Includes Vivekananda Rock Memorial, Thiruvalluvar Statue, and the coastal drive to Rameshwaram.',
+        price: 28000, // Budget
+        rating: 4.5,
+        tags: ['coastal', 'iconic', 'spiritual', 'scenic'],
+        imagePlaceholderText: 'Kanyakumari-Sunrise'
+    },
+    {
+        id: 'nilgiri-hill-stations',
+        name: 'Ooty & Kodaikanal Mountain Getaway (6 Days)',
+        description: 'A classic hill station tour covering Ooty (Queen of Hills, Botanical Gardens, Doddabetta Peak) and Kodaikanal (Lake, Coaker’s Walk), including a ride on the UNESCO Nilgiri Mountain Railway.',
+        price: 37000, // Mid-Range
+        rating: 4.7,
+        tags: ['hills', 'scenic', 'family', 'romance'],
+        imagePlaceholderText: 'Ooty-Toy-Train'
+    },
+    {
+        id: 'periyar-wildlife-spice',
+        name: 'Periyar Wildlife & Spice Tour (4 Days)',
+        description: 'A nature-focused trip to Thekkady/Periyar in Kerala, featuring boat safaris in Periyar Tiger Reserve to spot elephants and birdlife, combined with guided tours of local spice plantations.',
+        price: 32000, // Mid-Range
+        rating: 4.4,
+        tags: ['wildlife', 'nature', 'safari', 'adventure'],
+        imagePlaceholderText: 'Periyar-Wildlife'
+    },
+    {
+        id: 'gokarna-beach-retreat',
+        name: 'Gokarna Beach & Coastal Karnataka (5 Days)',
+        description: 'A relaxed, bohemian beach retreat on the scenic beaches of Om, Kudle, and Half Moon in Karnataka, balancing temple visits with beach hikes and local cuisine.',
+        price: 30000, // Budget/Mid-Range
+        rating: 4.3,
+        tags: ['beach', 'relaxation', 'adventure', 'domestic'],
+        imagePlaceholderText: 'Gokarna-Beach'
+    },
+    {
+        id: 'pondicherry-french-charm',
+        name: 'Pondicherry & Mahabalipuram Culture Trip (5 Days)',
+        description: 'Experience the French colonial architecture and spiritual calm of Pondicherry (Aurobindo Ashram, Auroville), coupled with the ancient Pallava rock-cut temples and Shore Temple of Mahabalipuram (UNESCO site).',
+        price: 48000, // Mid-Range/Luxury
+        rating: 4.8,
+        tags: ['culture', 'history', 'coastal', 'architecture'],
+        imagePlaceholderText: 'Pondicherry-French-Colony'
     }.
 ];
 
