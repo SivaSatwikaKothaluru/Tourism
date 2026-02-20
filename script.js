@@ -397,14 +397,14 @@ function startBooking(packageId) {
             idHtml = `
                 <div class="id-requirements" style="margin-bottom: 15px; padding: 10px; border: 1px solid #ffc107; border-radius: 5px;">
                     <p style="font-size: 0.9rem; color: #856404;"><strong>Note:</strong> This is an International trip.</p>
-                    <input type="text" placeholder="Passport Number" required id="passport-no" style="width: 100%; margin-top: 5px;">
-                    <input type="text" placeholder="Visa Number/Status" required id="visa-no" style="width: 100%; margin-top: 5px;">
+                    <input type="text" placeholder="Passport Number" required id="passport-no"pattern="[A-Z]{1}[0-9]{7}" title="Invalid Passport Number" style="width: 100%; margin-top: 5px;">
+                    <input type="text" placeholder="Visa Number" required id="visa-no"pattern="V[0-9]{8,10}" title="Invalid Visa Number" style="width: 100%; margin-top: 5px;">
                 </div>`;
         } else {
             idHtml = `
                 <div class="id-requirements" style="margin-bottom: 15px; padding: 10px; border: 1px solid #28a745; border-radius: 5px;">
                     <p style="font-size: 0.9rem; color: #155724;"><strong>Note:</strong> Domestic Trip - Govt ID required.</p>
-                    <input type="text" placeholder="Aadhar or Pan Card Number" required id="govt-id" style="width: 100%; margin-top: 5px;">
+                    <input type="text" placeholder="Aadhar Card Number" required id="govt-id"pattern="[0-9]{12}" style="width: 100%; margin-top: 5px;">
                 </div>`;
         }
 
