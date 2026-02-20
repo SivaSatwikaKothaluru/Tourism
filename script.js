@@ -432,27 +432,34 @@ function renderReviews() {
 
 
 function startBooking(packageId) {
-    const selectedPackage = DESTINATIONS_DATA.find(p => p.id === packageId);
+    const pkg = DESTINATIONS_DATA.find(p => p.id === packageId);
     
-    if (selectedPackage) {
-       
-        document.getElementById('selected-package-name').textContent = selectedPackage.name;
+    if (pkg) {
+        // 1. Update the title
+        document.getElementById('selected-package-name').textContent = pkg.name;
 
-       
+        // 2. Select the itinerary container
         const itineraryDetails = document.querySelector('#booking .itinerary-details');
+        
+        // 3. Map through the itinerary array to create the "Day" items
+        const itineraryHtml = pkg.itinerary.map((dayDescription, index) => `
+            <div class="itinerary-day">
+                <div class="day-number">Day ${index + 1}</div>
+                <div class="day-content">${dayDescription.split(': ')[1] || dayDescription}</div>
+            </div>
+        `).join('');
+
+        // 4. Inject the new HTML
         itineraryDetails.innerHTML = `
-            <h2>Your Itinerary: ${selectedPackage.name}</h2>
-            <p><strong>Duration:</strong> ${selectedPackage.name.match(/\((\d+)/)?.[1] || 'Unknown'} Days</p>
-            <p><strong>Price:</strong> **₹${selectedPackage.price.toLocaleString('en-IN')}**</p>
-            <p><strong>Overview:</strong> ${selectedPackage.description}</p>
-            <hr>
-            <p>Day 1: Arrival & Local Sightseeing/Acclimatization.</p>
-            <p>Day 2: Main Activity (e.g., Start Trek / Beach Day).</p>
-            <p>Day 3: Mid-Trip Highlight (e.g., Summit Push / Cultural Tour).</p>
-            <p>Day 4: Departure Preparation / Relaxation.</p>
+            <h2>Planned Itinerary</h2>
+            <p class="itinerary-price">Total Package: <strong>₹${pkg.price.toLocaleString('en-IN')}</strong></p>
+            <div class="itinerary-timeline">
+                ${itineraryHtml}
+            </div>
         `;
         
         showPage('booking');
+
     } else {
         alert('Package details not found. Please try again.');
     }
