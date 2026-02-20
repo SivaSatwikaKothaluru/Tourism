@@ -463,6 +463,16 @@ function startBooking(packageId) {
     } else {
         alert('Package details not found. Please try again.');
     }
+    // Inside startBooking function
+const itineraryHtml = pkg.itinerary.map((dayText) => {
+    const [dayTitle, ...description] = dayText.split(': ');
+    return `
+        <div class="itinerary-day">
+            <span class="day-title">${dayTitle}</span>
+            <p>${description.join(': ')}</p>
+        </div>
+    `;
+}).join('');
 }
 
 
@@ -576,54 +586,30 @@ document.getElementById('payment-form')?.addEventListener('submit', (e) => {
 
 
 function downloadItineraryPdf() {
-   
     const itineraryArea = document.querySelector('#booking .itinerary-details');
 
-    
-    const receiptContent = document.querySelector('#confirmation-receipt');
-
-    if (!itineraryArea || !receiptContent) {
-        alert('Cannot find itinerary details to generate PDF.');
+    if (!itineraryArea) {
+        alert('No itinerary found!');
         return;
     }
 
-    
-    html2canvas(itineraryArea, { scale: 2 }).then(canvas => {
-       
+    // Use html2canvas to take a "screenshot" of the itinerary
+    html2canvas(itineraryArea, { 
+        scale: 2,
+        useCORS: true // This helps if you use external images
+    }).then(canvas => {
         const { jsPDF } = window.jspdf;
-        const pdf = new jsPDF('p', 'mm', 'a4'); 
+        const pdf = new jsPDF('p', 'mm', 'a4');
         
-        
-        const pdfWidth = pdf.internal.pageSize.getWidth();
-        const pdfHeight = pdf.internal.pageSize.getHeight();
-
         const imgData = canvas.toDataURL('image/png');
-        const imgWidth = pdfWidth - 20; // 10mm margin on each side
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const imgWidth = pdfWidth - 20; 
         const imgHeight = (canvas.height * imgWidth) / canvas.width;
-        let position = 10; // Start position (10mm margin from top)
 
-        
-        if (imgHeight > (pdfHeight - 20)) {
-           
-            pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
-        } else {
-            pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
-        }
-
-       
-        pdf.save("GlobalJourneys_Itinerary.pdf");
-        
-       
-        setTimeout(() => {
-            document.getElementById('payment-form').style.display = 'block';
-            document.getElementById('confirmation-receipt').style.display = 'none';
-           
-            document.getElementById('selected-package-name').textContent = '...';
-            document.querySelector('#booking .itinerary-details').innerHTML = '<p>Please select a package on the Destinations page.</p>';
-        }, 500); 
+        pdf.addImage(imgData, 'PNG', 10, 10, imgWidth, imgHeight);
+        pdf.save("My_GlobalJourneys_Trip.pdf");
     });
 }
-
 function openReviewSubmission() {
    
     const reviewName = prompt("Please enter your name:");
@@ -647,5 +633,24 @@ function openReviewSubmission() {
        
     }
 }
+function createPackageCard(pkg) {
+    // If the image path is missing, it uses a placeholder
+    const imageSrc = pkg.image || `https://placehold.co/600x400?text=${pkg.id}`;
 
+    return `
+        <div class="package-card">
+            <div class="gallery-placeholder">
+                <img src="${imageSrc}" alt="${pkg.name}" onerror="this.src='https://placehold.co/600x400?text=Destination+Image'">
+                <p class="rating">⭐ ${pkg.rating}</p>
+            </div>
+            <div class="package-content">
+                <h3>${pkg.name}</h3>
+                <div class="price-info">
+                    <span class="dynamic-price">₹${pkg.price.toLocaleString('en-IN')}</span>
+                    <button class="book-btn" onclick="startBooking('${pkg.id}')">View Itinerary</button>
+                </div>
+            </div>
+        </div>
+    `;
+}
 
