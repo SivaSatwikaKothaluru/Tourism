@@ -390,7 +390,35 @@ function startBooking(packageId) {
     if (pkg) {
         // 1. Update the title
         document.getElementById('selected-package-name').textContent = pkg.name;
+        const isInternational = ['bali-beach', 'european-cities'].includes(pkg.id);
+        let idHtml = '';
 
+        if (isInternational) {
+            idHtml = `
+                <div class="id-requirements" style="margin-bottom: 15px; padding: 10px; border: 1px solid #ffc107; border-radius: 5px;">
+                    <p style="font-size: 0.9rem; color: #856404;"><strong>Note:</strong> This is an International trip.</p>
+                    <input type="text" placeholder="Passport Number" required id="passport-no" style="width: 100%; margin-top: 5px;">
+                    <input type="text" placeholder="Visa Number/Status" required id="visa-no" style="width: 100%; margin-top: 5px;">
+                </div>`;
+        } else {
+            idHtml = `
+                <div class="id-requirements" style="margin-bottom: 15px; padding: 10px; border: 1px solid #28a745; border-radius: 5px;">
+                    <p style="font-size: 0.9rem; color: #155724;"><strong>Note:</strong> Domestic Trip - Govt ID required.</p>
+                    <input type="text" placeholder="Aadhar or Pan Card Number" required id="govt-id" style="width: 100%; margin-top: 5px;">
+                </div>`;
+        }
+
+        // Inject the ID fields at the top of the payment form
+        const paymentForm = document.getElementById('payment-form');
+        const existingIdContainer = document.getElementById('id-container');
+        
+        if (existingIdContainer) existingIdContainer.remove(); // Clear old ones
+
+        const idContainer = document.createElement('div');
+        idContainer.id = 'id-container';
+        idContainer.innerHTML = idHtml;
+        paymentForm.prepend(idContainer); 
+        // --- END OF NEW LOGIC ---
         // 2. Select the itinerary container
         const itineraryDetails = document.querySelector('#booking .itinerary-details');
         
@@ -417,7 +445,7 @@ function startBooking(packageId) {
         alert('Package details not found. Please try again.');
     }
     // Inside startBooking function
-const itineraryHtml = pkg.itinerary.map((dayText) => {
+    const itineraryHtml = pkg.itinerary.map((dayText) => {
     const [dayTitle, ...description] = dayText.split(': ');
     return `
         <div class="itinerary-day">
@@ -425,7 +453,7 @@ const itineraryHtml = pkg.itinerary.map((dayText) => {
             <p>${description.join(': ')}</p>
         </div>
     `;
-}).join('');
+    }).join('');
 }
 
 
