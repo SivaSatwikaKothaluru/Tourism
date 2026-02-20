@@ -447,7 +447,37 @@ footer {
     background-color: #ffffff;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
+/* Styling for the dynamically injected ID box */
+#id-container {
+    width: 100%;
+    margin-bottom: 15px;
+}
 
+.id-requirements {
+    background: #fdfdfd;
+    transition: all 0.3s ease;
+}
+
+/* Ensure inputs injected by JS match your form's style */
+.id-requirements input {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+/* Add a smooth fade-in for the fields */
+#id-container {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 /* Style for the specific inputs inside the requirements box */
 .id-requirements input {
     padding: 10px;
