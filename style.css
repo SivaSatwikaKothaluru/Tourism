@@ -435,3 +435,58 @@ footer {
     display: block;
     margin-bottom: 5px;
 }
+/* Container for the dynamic ID fields */
+#id-container {
+    width: 100%;
+    margin-bottom: 1rem;
+    animation: slideDown 0.3s ease-out;
+}
+
+/* Base style for the requirements box */
+.id-requirements {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Style for the specific inputs inside the requirements box */
+.id-requirements input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: border-color 0.3s;
+}
+
+.id-requirements input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+/* Styling for the Itinerary Timeline */
+.itinerary-timeline {
+    margin-top: 20px;
+    border-left: 2px solid var(--primary-color);
+    padding-left: 20px;
+}
+
+.itinerary-day {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.day-number, .day-title {
+    font-weight: bold;
+    color: var(--primary-color);
+    display: block;
+}
+
+.day-content p {
+    color: #555;
+    font-size: 0.95rem;
+}
+
+/* Animation for a smooth appearance when switching packages */
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
