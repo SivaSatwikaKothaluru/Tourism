@@ -2,157 +2,259 @@ const DESTINATIONS_DATA = [
     {
         id: 'himalayan-trek',
         name: 'The Himalayan Trek (5 Days)',
-        description: 'An epic journey through the mountains of Uttarakhand, focusing on stunning high-altitude views and base camp experiences.',
-        price: 29999, 
+        image: 'images/himalaya.jpg',
+        price: 29999,
         rating: 4.8,
-        tags: ['adventure', 'trekking', 'nature'],
-        imagePlaceholderText: 'Himalayan-Trek'
+        itinerary: [
+            "Day 1: Arrival in Dehradun & Drive to Sankri",
+            "Day 2: Trek from Sankri to Juda-ka-Talab (Frozen Lake)",
+            "Day 3: Trek to Kedarkantha Base Camp",
+            "Day 4: Summit Push (12,500ft) & Descent to Base",
+            "Day 5: Drive back to Dehradun & Departure"
+        ]
     },
     {
         id: 'bali-beach',
         name: 'Bali Relaxation Retreat (7 Days)',
-        description: 'A luxurious and peaceful getaway to the serene beaches and temples of Bali, Indonesia, including yoga sessions.',
-        price: 45000, 
+        image: 'images/bali.jpg',
+        price: 45000,
         rating: 4.5,
-        tags: ['relaxation', 'luxury', 'beach'],
-        imagePlaceholderText: 'Bali Beach'
+        itinerary: [
+            "Day 1: Arrival in Denpasar & Beachfront Dinner",
+            "Day 2: Ubud Art Market & Tegenungan Waterfall",
+            "Day 3: Monkey Forest & Rice Terrace Swing Experience",
+            "Day 4: Tirta Empul Temple Purification Ritual",
+            "Day 5: Uluwatu Temple Sunset & Kecak Fire Dance",
+            "Day 6: Nusa Penida Island Day Trip (Snorkeling)",
+            "Day 7: Balinese Spa Session & Departure"
+        ]
     },
     {
         id: 'european-cities',
         name: 'Grand European Tour (10 Days)',
-        description: 'A whirlwind tour covering Paris, Rome, and Berlin. Culture, history, and great food in iconic European cities!',
-        price: 75000, 
+        image: 'images/europe.jpg',
+        price: 75000,
         rating: 4.9,
-        tags: ['culture', 'city-break', 'history'],
-        imagePlaceholderText: 'European Tour'
+        itinerary: [
+            "Day 1: Welcome to Paris - Eiffel Tower Visit",
+            "Day 2: Louvre Museum & Seine River Cruise",
+            "Day 3: Train to Lucerne, Switzerland",
+            "Day 4: Mt. Titlis Snow Adventure & Chapel Bridge",
+            "Day 5: Scenic Train to Venice, Italy",
+            "Day 6: Gondola Ride & St. Mark’s Basilica",
+            "Day 7: Drive to Florence - Renaissance Tour",
+            "Day 8: Arrival in Rome - The Colosseum",
+            "Day 9: Vatican City & Trevi Fountain",
+            "Day 10: Final Italian Brunch & Flight Home"
+        ]
     },
     {
         id: 'kerala-backwaters',
         name: 'Kerala Backwaters Holiday (4 Days)',
-        description: 'Experience the tranquil beauty of Kerala on a houseboat, exploring the lush backwaters and local life.',
-        price: 32000, 
+        image: 'images/kerala.jpg',
+        price: 32000,
         rating: 4.7,
-        tags: ['nature', 'relaxation', 'domestic'],
-        imagePlaceholderText: 'Kerala Backwaters'
+        itinerary: [
+            "Day 1: Arrival in Kochi & Fort Kochi Heritage Walk",
+            "Day 2: Drive to Alleppey & Houseboat Check-in",
+            "Day 3: Exploring Kumarakom Bird Sanctuary",
+            "Day 4: Morning Shikara Ride & Departure from Kochi"
+        ]
     },
     {
         id: 'ladakh-bike-expedition',
         name: 'Ladakh High-Altitude Bike Expedition (9 Days)',
-        description: 'The ultimate adventure trip: navigating challenging mountain passes (like Khardung La) and exploring the stunning landscapes of Leh, Nubra Valley, and Pangong Lake on a Royal Enfield.',
-        price: 49999, // Budget/Mid-Range
+        image: 'images/ladakh.jpg',
+        price: 49999,
         rating: 4.8,
-        tags: ['adventure', 'high-altitude', 'biking', 'extreme'],
-        imagePlaceholderText: 'Ladakh-Bike-Ride'
+        itinerary: [
+            "Day 1: Arrival in Leh - Acclimatization Day",
+            "Day 2: Bike Pickup & Local Sightseeing (Shanti Stupa)",
+            "Day 3: Ride to Nubra Valley via Khardung La",
+            "Day 4: Hunder Sand Dunes & Camel Safari",
+            "Day 5: Ride to Turtuk Village (India-Pak Border)",
+            "Day 6: Nubra to Pangong Lake via Shyok River",
+            "Day 7: Sunrise at Pangong & Ride back to Leh",
+            "Day 8: Magnetic Hill & Hall of Fame Visit",
+            "Day 9: Airport Transfer with Memories"
+        ]
     },
     {
         id: 'rajasthan-palace',
         name: 'Rajasthan Luxury Palace Stay (6 Days)',
-        description: 'A royal experience staying in converted heritage palaces (like in Udaipur and Jaipur), including private sightseeing, cultural shows, and gourmet Rajasthani dining.',
-        price: 95000, // Luxury
+        image: 'images/rajasthan.jpg',
+        price: 95000,
         rating: 4.9,
-        tags: ['luxury', 'history', 'culture', 'heritage'],
-        imagePlaceholderText: 'Rajasthan-Palace'
+        itinerary: [
+            "Day 1: Royal Welcome in Udaipur - Lake Pichola",
+            "Day 2: City Palace & Jagdish Temple Tour",
+            "Day 3: Drive to Jodhpur - Mehrangarh Fort",
+            "Day 4: Umaid Bhawan Palace & Local Bazaars",
+            "Day 5: Camel Safari in Sam Dunes (Jaisalmer)",
+            "Day 6: Breakfast at the Haveli & Departure"
+        ]
     },
     {
         id: 'golden-triangle',
         name: 'The Golden Triangle Tour (7 Days)',
-        description: 'The classic cultural circuit covering Delhi (historical monuments), Agra (Taj Mahal), and Jaipur (Pink City) for a comprehensive blend of Mughal and Rajput heritage.',
-        price: 35000, // Budget
+        image: 'images/golden-triangle.jpg',
+        price: 35000,
         rating: 4.7,
-        tags: ['culture', 'history', 'city-break', 'iconic'],
-        imagePlaceholderText: 'Golden-Triangle'
+        itinerary: [
+            "Day 1: Arrival in Delhi - Red Fort & India Gate",
+            "Day 2: Old Delhi Heritage Walk & Qutub Minar",
+            "Day 3: Drive to Agra - Mehtab Bagh Sunset",
+            "Day 4: Taj Mahal Sunrise & Agra Fort",
+            "Day 5: Drive to Jaipur via Fatehpur Sikri",
+            "Day 6: Amer Fort (Elephant Ride) & Hawa Mahal",
+            "Day 7: Jantar Mantar & Drive back to Delhi"
+        ]
     },
     {
         id: 'andaman-island',
         name: 'Andaman Scuba & Beach Holiday (6 Days)',
-        description: 'A tropical retreat to the serene beaches of Havelock and Neil Island, focusing on water sports, world-class scuba diving/snorkeling, and tranquil beach relaxation.',
-        price: 40000, // Mid-Range
+        image: 'images/andaman.jpg',
+        price: 40000,
         rating: 4.6,
-        tags: ['relaxation', 'beach', 'nature', 'domestic'],
-        imagePlaceholderText: 'Andaman-Beach'
+        itinerary: [
+            "Day 1: Port Blair Arrival & Cellular Jail show",
+            "Day 2: Ferry to Havelock & Radhanagar Beach",
+            "Day 3: Scuba Diving Session at Nemo Reef",
+            "Day 4: Snorkeling at Elephant Beach",
+            "Day 5: Neil Island Natural Bridge visit",
+            "Day 6: Return to Port Blair & Departure"
+        ]
     },
-   
     {
         id: 'tamil-nadu-temple-trail',
         name: 'Tamil Nadu Grand Temple Circuit (8 Days)',
-        description: 'A deep cultural journey through Madurai (Meenakshi Temple), Thanjavur (Brihadeeswarar Temple - UNESCO World Heritage), and Rameshwaram, focusing on stunning Dravidian architecture and spirituality.',
-        price: 35000, // Budget
+        image: 'images/tamilnadu.jpg',
+        price: 35000,
         rating: 4.7,
-        tags: ['culture', 'history', 'spiritual', 'iconic'],
-        imagePlaceholderText: 'Madurai-Meenakshi-Temple'
+        itinerary: [
+            "Day 1: Arrival in Chennai & Kapaleeshwarar Temple",
+            "Day 2: Shore Temples of Mahabalipuram",
+            "Day 3: Drive to Thanjavur - Brihadeeswara Temple",
+            "Day 4: Exploring Kumbakonam Heritage Sites",
+            "Day 5: Drive to Madurai - Meenakshi Temple",
+            "Day 6: Morning Darshan & Drive to Rameshwaram",
+            "Day 7: Dhanushkodi Sightseeing & Temple Pooja",
+            "Day 8: Departure from Madurai Airport"
+        ]
     },
     {
         id: 'karnataka-heritage',
         name: 'Hampi & Mysore Royal Heritage (7 Days)',
-        description: 'Explore the spectacular stone ruins of the Vijayanagara Empire at Hampi (UNESCO site), then immerse yourself in the royal grandeur of Mysore Palace and the silk city.',
-        price: 42000, // Mid-Range
+        image: 'images/hampi.jpg',
+        price: 42000,
         rating: 4.6,
-        tags: ['history', 'ruins', 'heritage', 'culture'],
-        imagePlaceholderText: 'Hampi-Mysore-Palace'
+        itinerary: [
+            "Day 1: Arrival in Bangalore & Drive to Mysore",
+            "Day 2: Mysore Palace & Chamundi Hills",
+            "Day 3: Drive to Hampi via Chitradurga Fort",
+            "Day 4: Virupaksha Temple & Vitthala Temple",
+            "Day 5: Hampi Coracle Ride & Anjanadri Hill",
+            "Day 6: Exploring the Royal Enclosure",
+            "Day 7: Return Journey to Bangalore"
+        ]
     },
     {
         id: 'coorg-wildlife-coffee',
         name: 'Coorg & Wayanad: Coffee, Mist & Treks (5 Days)',
-        description: 'A lush green retreat to the "Scotland of India" (Coorg, Karnataka) and Wayanad (Kerala). Focused on coffee and spice plantation tours, waterfall visits (Abbey Falls), and gentle forest treks.',
-        price: 39000, // Mid-Range
+        image: 'images/coorg.jpg',
+        price: 39000,
         rating: 4.5,
-        tags: ['nature', 'hills', 'plantations', 'trekking'],
-        imagePlaceholderText: 'Coorg-Coffee-Estate'
+        itinerary: [
+            "Day 1: Drive from Bangalore to Coorg (Madikeri)",
+            "Day 2: Abbey Falls & Dubare Elephant Camp",
+            "Day 3: Coffee Plantation Walk & Drive to Wayanad",
+            "Day 4: Edakkal Caves & Banasura Sagar Dam",
+            "Day 5: Pookode Lake & Departure from Calicut"
+        ]
     },
     {
         id: 'andhra-telangana-pilgrimage',
-        name: 'Tirupati & Hyderabad Spiritual-City Break (5 Days)',
-        description: 'Combines the spiritual draw of Tirumala Venkateswara Temple (Tirupati Balaji) in Andhra Pradesh with the historical monuments (Charminar, Golconda Fort) and food of Hyderabad, Telangana.',
-        price: 36000, // Budget/Mid-Range
+        name: 'Tirupati & Hyderabad Spiritual Break (5 Days)',
+        image: 'images/tirupati.jpg',
+        price: 36000,
         rating: 4.4,
-        tags: ['spiritual', 'city-break', 'history', 'iconic'],
-        imagePlaceholderText: 'Tirupati-Charminar'
+        itinerary: [
+            "Day 1: Arrival in Tirupati - Lord Venkateswara Temple",
+            "Day 2: Local Temples (Padmavathi) & Drive to Hyderabad",
+            "Day 3: Charminar, Mecca Masjid & Laad Bazaar",
+            "Day 4: Golconda Fort & Salar Jung Museum",
+            "Day 5: Ramoji Film City Tour & Departure"
+        ]
     },
     {
         id: 'kanyakumari-coastal',
         name: 'Tamil Nadu South Tip & Coastal Views (4 Days)',
-        description: 'Visit the unique confluence of the Arabian Sea, Bay of Bengal, and Indian Ocean at Kanyakumari. Includes Vivekananda Rock Memorial, Thiruvalluvar Statue, and the coastal drive to Rameshwaram.',
-        price: 28000, // Budget
+        image: 'images/kanyakumari.jpg',
+        price: 28000,
         rating: 4.5,
-        tags: ['coastal', 'iconic', 'spiritual', 'scenic'],
-        imagePlaceholderText: 'Kanyakumari-Sunrise'
+        itinerary: [
+            "Day 1: Arrival in Kanyakumari - Ferry to Rock Memorial",
+            "Day 2: Sunrise View & Drive to Rameshwaram",
+            "Day 3: Pamban Bridge & Temple Sightseeing",
+            "Day 4: Dhanushkodi Drive & Final Departure"
+        ]
     },
     {
         id: 'nilgiri-hill-stations',
         name: 'Ooty & Kodaikanal Mountain Getaway (6 Days)',
-        description: 'A classic hill station tour covering Ooty (Queen of Hills, Botanical Gardens, Doddabetta Peak) and Kodaikanal (Lake, Coaker’s Walk), including a ride on the UNESCO Nilgiri Mountain Railway.',
-        price: 37000, // Mid-Range
+        image: 'images/ooty.jpg',
+        price: 37000,
         rating: 4.7,
-        tags: ['hills', 'scenic', 'family', 'romance'],
-        imagePlaceholderText: 'Ooty-Toy-Train'
+        itinerary: [
+            "Day 1: Arrival in Coimbatore & Drive to Ooty",
+            "Day 2: Botanical Gardens & Ooty Lake Boating",
+            "Day 3: Toy Train Ride to Coonoor & Tea Estates",
+            "Day 4: Drive to Kodaikanal & Evening Lake Walk",
+            "Day 5: Coaker’s Walk & Pillar Rocks visit",
+            "Day 6: Final Shopping & Departure"
+        ]
     },
     {
         id: 'periyar-wildlife-spice',
         name: 'Periyar Wildlife & Spice Tour (4 Days)',
-        description: 'A nature-focused trip to Thekkady/Periyar in Kerala, featuring boat safaris in Periyar Tiger Reserve to spot elephants and birdlife, combined with guided tours of local spice plantations.',
-        price: 32000, // Mid-Range
+        image: 'images/periyar.jpg',
+        price: 32000,
         rating: 4.4,
-        tags: ['wildlife', 'nature', 'safari', 'adventure'],
-        imagePlaceholderText: 'Periyar-Wildlife'
+        itinerary: [
+            "Day 1: Arrival in Thekkady & Spice Plantation Tour",
+            "Day 2: Periyar Lake Boat Safari (Wildlife Spotting)",
+            "Day 3: Jungle Night Trekking & Elephant Interaction",
+            "Day 4: Morning Yoga & Departure from Kochi"
+        ]
     },
     {
         id: 'gokarna-beach-retreat',
         name: 'Gokarna Beach & Coastal Karnataka (5 Days)',
-        description: 'A relaxed, bohemian beach retreat on the scenic beaches of Om, Kudle, and Half Moon in Karnataka, balancing temple visits with beach hikes and local cuisine.',
-        price: 30000, // Budget/Mid-Range
+        image: 'images/gokarna.jpg',
+        price: 30000,
         rating: 4.3,
-        tags: ['beach', 'relaxation', 'adventure', 'domestic'],
-        imagePlaceholderText: 'Gokarna-Beach'
+        itinerary: [
+            "Day 1: Arrival in Gokarna & Mahabaleshwar Temple",
+            "Day 2: Trek to Half Moon & Paradise Beach",
+            "Day 3: Sunset at Om Beach & Local Seafood Dinner",
+            "Day 4: Drive to Murudeshwar - Huge Shiva Statue",
+            "Day 5: Beach Yoga & Return Journey"
+        ]
     },
     {
         id: 'pondicherry-french-charm',
-        name: 'Pondicherry & Mahabalipuram Culture Trip (5 Days)',
-        description: 'Experience the French colonial architecture and spiritual calm of Pondicherry (Aurobindo Ashram, Auroville), coupled with the ancient Pallava rock-cut temples and Shore Temple of Mahabalipuram (UNESCO site).',
-        price: 48000, // Mid-Range/Luxury
+        name: 'Pondicherry & Mahabalipuram Culture (5 Days)',
+        image: 'images/pondicherry.jpg',
+        price: 48000,
         rating: 4.8,
-        tags: ['culture', 'history', 'coastal', 'architecture'],
-        imagePlaceholderText: 'Pondicherry-French-Colony'
-    },
+        itinerary: [
+            "Day 1: Arrival in Chennai & Drive to Mahabalipuram",
+            "Day 2: Shore Temple & Five Rathas (UNESCO Site)",
+            "Day 3: Drive to Pondicherry - White Town Walk",
+            "Day 4: Auroville Matrimandir & Paradise Beach",
+            "Day 5: French Breakfast & Departure"
+        ]
+    }
 ];
 
 const REVIEWS_DATA = [
