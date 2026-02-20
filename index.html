@@ -61,41 +61,37 @@
         </section>
 
         <section id="booking" class="page">
-            <h1>Complete Your Booking</h1>
-            <p>You are booking: <span id="selected-package-name">...</span></p>
-            
-            <div class="itinerary-details">
-                <h2>Your Itinerary</h2>
-                <p>Please select a package on the Destinations page.</p>
-            </div>
-
-            <div class="booking-form-area">
-                <h2>Traveler Details & Payment</h2>
-                <form id="payment-form">
-    <input type="text" placeholder="Full Name" required id="traveler-name"> 
-    <input type="email" placeholder="Email" required id="traveler-email"> 
-    <input type="text" placeholder="Credit Card Number (e.g., 1234567890123456)" pattern="[0-9]{16}" title="Credit card must be 16 digits" required id="card-number">
+    <h1>Complete Your Booking</h1>
+    <p>You are booking: <span id="selected-package-name">...</span></p>
     
-    <div style="display: flex; gap: 10px;">
-        <input type="text" placeholder="MM/YY" pattern="(0[1-9]|1[0-2])\/[0-9]{2}" title="Must be MM/YY format" required style="width: 50%;">
-        <input type="text" placeholder="CVV" pattern="[0-9]{3,4}" title="CVV must be 3 or 4 digits" required style="width: 50%;">
+    <div class="itinerary-details">
+        <h2>Your Itinerary</h2>
+        <p>Please select a package on the Destinations page.</p>
     </div>
-    <button type="submit">Pay and Confirm</button>
-</form>
-            </div>
 
-            <div class="booking-form-area">
+    <div class="booking-form-area">
+        <h2>Traveler Details & Payment</h2>
+        <form id="payment-form">
+            <input type="text" placeholder="Full Name" required id="traveler-name"> 
+            <input type="email" placeholder="Email" required id="traveler-email"> 
+            <input type="text" placeholder="Credit Card Number (e.g., 1234567890123456)" pattern="[0-9]{16}" title="Credit card must be 16 digits" required id="card-number">
+            
+            <div style="display: flex; gap: 10px;">
+                <input type="text" placeholder="MM/YY" pattern="(0[1-9]|1[0-2])\/[0-9]{2}" title="Must be MM/YY format" required style="width: 50%;">
+                <input type="text" placeholder="CVV" pattern="[0-9]{3,4}" title="CVV must be 3 or 4 digits" required style="width: 50%;">
             </div>
-        
-        <div id="confirmation-receipt" style="display: none; max-width: 600px; margin: 30px auto; padding: 20px; border: 1px dashed var(--primary-color); border-radius: 8px;">
-            <h2>Booking Confirmed!</h2>
-            <p>Your journey is set. Download your detailed itinerary below.</p>
-            <button onclick="downloadItineraryPdf()" style="margin-top: 15px; width: 100%; background-color: var(--secondary-color);">
-                 Download Booking PDF
-            </button>
-        </div>
-        
-        </section>
+            <button type="submit">Pay and Confirm</button>
+        </form>
+    </div>
+
+    <div id="confirmation-receipt" style="display: none; max-width: 600px; margin: 30px auto; padding: 20px; border: 1px dashed var(--primary-color); border-radius: 8px;">
+        <h2>Booking Confirmed!</h2>
+        <p>Your journey is set. Download your detailed itinerary below.</p>
+        <button onclick="downloadItineraryPdf()" style="margin-top: 15px; width: 100%; background-color: var(--secondary-color);">
+             Download Booking PDF
+        </button>
+    </div>
+</section>
 
         <section id="reviews" class="page">
             <h1> Customer Reviews</h1>
