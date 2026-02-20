@@ -8,6 +8,7 @@
     --text-light: #ffffff;
     --card-bg: white;
     --spacing-unit: 1rem;
+    --card-shadow;
 }
 
 * {
