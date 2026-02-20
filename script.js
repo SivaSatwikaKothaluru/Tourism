@@ -315,53 +315,6 @@ function showPage(pageId) {
         });
     }
 }
-
-
-
-function createPackageCard(pkg) {
-
-   
-
-    const imageUrl = `https://placehold.co/400x200/5078a6/FFFFFF?text=${pkg.imagePlaceholderText.replace(/ /g, '+')}`;
-
-
-
-    return `
-
-        <div class="package-card">
-
-            <h3>${pkg.name}</h3>
-
-            <div class="gallery-placeholder">
-
-                <img src="${imageUrl}" alt="Gallery for ${pkg.name}">
-
-                <p class="rating">⭐ ${pkg.rating}</p>
-
-            </div>
-
-            <p class="description">${pkg.description}</p>
-
-            <div class="price-info">
-
-                <span class="dynamic-price">
-
-                    Price From: **₹${pkg.price.toLocaleString('en-IN')}**
-
-                </span>
-
-                <button class="book-btn" data-package-id="${pkg.id}" onclick="startBooking('${pkg.id}')">Book Now</button>
-
-            </div>
-
-        </div>
-
-    `;
-
-}
-
-
-
 function renderDestinations(filteredData = DESTINATIONS_DATA) {
     const listingContainer = document.getElementById('package-listing');
     listingContainer.innerHTML = ''; // Clear previous content
@@ -559,11 +512,7 @@ document.getElementById('payment-form')?.addEventListener('submit', (e) => {
             <p><strong>Total Price:</strong> **₹${selectedPackage.price.toLocaleString('en-IN')}**</p>
             <p><strong>Overview:</strong> ${selectedPackage.description}</p>
             <hr>
-            <h3>Detailed Itinerary:</h3>
-            <p>Day 1: Arrival & Local Sightseeing/Acclimatization.</p>
-            <p>Day 2: Main Activity (e.g., Start Trek / Beach Day).</p>
-            <p>Day 3: Mid-Trip Highlight (e.g., Summit Push / Cultural Tour).</p>
-            <p>Day 4: Departure Preparation / Relaxation.</p>
+            
         `;
 
         
