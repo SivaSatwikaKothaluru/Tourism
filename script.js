@@ -152,7 +152,7 @@ const DESTINATIONS_DATA = [
         rating: 4.8,
         tags: ['culture', 'history', 'coastal', 'architecture'],
         imagePlaceholderText: 'Pondicherry-French-Colony'
-    }.
+    },
 ];
 
 const REVIEWS_DATA = [
@@ -292,7 +292,7 @@ function renderFeaturedPackages() {
             <p class="description" style="min-height: 20px;">Limited time offer!</p>
             <div class="price-info">
                 <span class="dynamic-price">
-                    **₹${pkg.price.toLocaleString('en-IN')}**
+                    </strong>₹${pkg.price.toLocaleString('en-IN')}</strong>
                 </span>
                 <button class="book-btn" onclick="startBooking('${pkg.id}')">View Deal</button>
             </div>
